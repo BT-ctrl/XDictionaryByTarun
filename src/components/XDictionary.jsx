@@ -77,9 +77,13 @@ export default function XDictionary() {
 
       <div style={{ marginTop: 20 }}>
         <h3>Definition:</h3>
-        {(definition || notFound) && (
-          <p>{definition ? definition : "Word not found in the dictionary."}</p>
-        )}
+        <p data-cy="definition-text">
+          {definition
+            ? definition
+            : notFound
+            ? "Word not found in the dictionary."
+            : ""}
+        </p>
       </div>
     </div>
   );
