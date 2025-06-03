@@ -34,17 +34,40 @@ export default function XDictionary() {
     }
   };
 
+  const handleInputChange = (e) => {
+    setSearchTerm(e.target.value);
+    setDefinition(null);
+    setNotFound(false);
+  };
+
+  const handleKeyDown = (e) => {
+    if (e.key === "Enter") {
+      handleSearch();
+    }
+  };
+
   return (
-    <div style={{ maxWidth: 400, margin: "20px auto", fontFamily: "Arial, sans-serif" }}>
+    <div
+      style={{
+        maxWidth: 400,
+        margin: "20px auto",
+        fontFamily: "Arial, sans-serif",
+      }}
+    >
       <input
         type="text"
         placeholder="Enter word to search"
         value={searchTerm}
-        onChange={(e) => setSearchTerm(e.target.value)}
+        onChange={handleInputChange}
+        onKeyDown={handleKeyDown}
+        aria-label="Search word"
+        data-cy="search-input"
         style={{ width: "70%", padding: "8px", fontSize: "16px" }}
       />
       <button
         onClick={handleSearch}
+        aria-label="Search dictionary for entered word"
+        data-cy="search-button"
         style={{ padding: "8px 16px", marginLeft: 8, fontSize: "16px" }}
       >
         Search
