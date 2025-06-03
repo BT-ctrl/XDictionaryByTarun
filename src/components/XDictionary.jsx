@@ -54,6 +54,8 @@ export default function XDictionary() {
         fontFamily: "Arial, sans-serif",
       }}
     >
+      <h1>Dictionary App</h1>
+
       <input
         type="text"
         placeholder="Enter word to search"
@@ -74,12 +76,8 @@ export default function XDictionary() {
       </button>
 
       <div style={{ marginTop: 20 }}>
-        {definition && (
-          <>
-            <h3>Definition:</h3>
-            <p>{definition}</p>
-          </>
-        )}
+        <h3>Definition:</h3>
+        {definition && <p>{definition}</p>}
         {notFound && <p>Word not found in the dictionary.</p>}
       </div>
     </div>
