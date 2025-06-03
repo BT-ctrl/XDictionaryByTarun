@@ -15,9 +15,10 @@ export default function XDictionary() {
   const handleSearch = () => {
     const search = searchTerm.trim().toLowerCase();
 
+    // ✅ If search input is empty, still show "not found" message
     if (!search) {
       setDefinition(null);
-      setNotFound(false);
+      setNotFound(true); // ← this is the key change
       return;
     }
 
